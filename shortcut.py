@@ -1,17 +1,15 @@
-import os
 import tkinter as tk
 
-from os import rename
+from os import remove, rename
 from glob import glob
 from PIL import ImageTk, Image
 
-images = glob('*.JPG')
-unclassified_images = filter(lambda image: image, images)
+images = glob('*.JPG') # 확장자명 유의
+unclassified_images = filter(lambda image: image, images) # iter/generator 형식 필요. for next()
 current = None
 
 def next_img():
     global current, unclassified_images
-    print(type(unclassified_images))
     try:
         current = next(unclassified_images)
     except StopIteration:
@@ -30,7 +28,7 @@ def next_img():
 
 def delete():
     global current
-    os.remove(current)
+    remove(current)
     next_img()
 
 def move(arg):
@@ -39,6 +37,10 @@ def move(arg):
     next_img()
 
 def key(event):
+    '''
+    지우거나 폴더를 이동시키는 기능
+    ex.) d를 누르면 삭제, s를 누르면 'side' 이름의 하위 폴더로 이동
+    '''
     print('pressed', repr(event.char))
     if repr(event.char) == "'d'":
         delete()
@@ -52,6 +54,8 @@ def key(event):
         move('normal')
     elif repr(event.char) == "'m'":
         move('multiple')
+    elif repr(event.char) == "'b'":
+        move('back')
 
 if __name__ == "__main__":
 
@@ -60,8 +64,6 @@ if __name__ == "__main__":
     img_label = tk.Label(root)
     img_label.pack()
     root.bind("<Key>", key)
-
-    btn = tk.Button(root, text='Next image', command=next_img)
 
     next_img() # load first image
 
