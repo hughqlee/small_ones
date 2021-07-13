@@ -40,6 +40,9 @@ def key(event):
     '''
     지우거나 폴더를 이동시키는 기능
     ex.) d를 누르면 삭제, s를 누르면 'side' 이름의 하위 폴더로 이동
+    
+    elif repr(event.char) == "'단축키'":
+        move('폴더명(클래스명)')
     '''
     print('pressed', repr(event.char))
     if repr(event.char) == "'d'":
