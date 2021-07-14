@@ -17,9 +17,9 @@
   * 't' : Tulips
 
 ## Custom Usage
-2. Check or Customize the image format, the key setup, and directory(or folder) names on the file `shortcut.py`.
-3. Check or Correct the directory structure on the directory which has many raw images.
-4. Lunch the file by `python shortcut.py`.
+1. Check or Customize the image format, the key setup, and directory(or folder) names on the file `shortcut.py`.
+2. Check or Correct the directory structure on the directory which has many raw images.
+3. Lunch the file by `python shortcut.py`.
 
 ## Before (적용 전)
 * A person moves the files to each directory(or folder) by drag&drop.
