@@ -3,4 +3,3 @@ every small tool for automation
 
 
 * labeling_for_classification : image_classification_to_each_dir by 🐍python.
-* mnist_classifier : mnist_classifier by streamlit.
